@@ -13,17 +13,7 @@ return require('packer').startup(function(use)
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
 
-use({
-	'rose-pine/neovim',
-	as = 'rose-pine',
-	config = function()
-		require("rose-pine").setup()
-	end
-})
-
 use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
-use('joshdick/onedark.vim')
-
 
 use {
 	'nvim-tree/nvim-tree.lua',
@@ -38,6 +28,43 @@ use {
 	requires = { 'kyazdani42/nvim-web-devicons', opt = true }
 }
 
+use {
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup()
+    end
+}
+
+use('joshdick/onedark.vim')
+use('ghifarit53/tokyonight-vim')
+use('tiagovla/tokyodark.nvim')
+use('lewis6991/moonlight.vim')
+use('ayu-theme/ayu-vim')
+use('gosukiwi/vim-atom-dark')
+-- Plug 'HerringtonDarkholme/yats.vim'
+--
+-- Navigate with C-h C-l C-j C-k
+use('christoomey/vim-tmux-navigator')
+-- Stable version of coc
+use('neoclide/coc.nvim', { branch = "release"})
+use( 'vim-scripts/c.vim')
+ -- use('wlangstroth/vim-racket')
+-- Close pairs () [] {} ''
+use('jiangmiao/auto-pairs')
+use('alvan/vim-closetag')
+-- "colorizer plugin for #fe4918
+use('norcalli/nvim-colorizer.lua')
+-- Have the indent lines
+use( 'yggdroot/indentline')
+-- Git Integration ______________
+use( 'tpope/vim-fugitive')
+use('airblade/vim-gitgutter')
+-- Copilot
+use( 'github/copilot.vim')
+-- Tex
+use('lervag/vimtex')
+use('KeitaNakamura/tex-conceal.vim', { ft = "tex"})
+use('SirVer/ultisnips')
 
 end)
 
