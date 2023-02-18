@@ -63,7 +63,7 @@ use('airblade/vim-gitgutter')
 use( 'github/copilot.vim')
 -- Tex
 use('lervag/vimtex')
-use('KeitaNakamura/tex-conceal.vim', { ft = "tex"})
+-- use('KeitaNakamura/tex-conceal.vim', { ft = "tex"})
 use('SirVer/ultisnips')
 
 end)
