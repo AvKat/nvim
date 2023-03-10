@@ -1,5 +1,6 @@
 require("mappings")
 require("set")
+require("conf")
 
 -- Next steps:
 -- 1. Add proper git

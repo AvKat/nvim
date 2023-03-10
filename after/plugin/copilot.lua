@@ -1,1 +1,1 @@
- vim.g.copilot_filetypes = {racket = false, tex = false, c = false, haskell = false}
+ vim.g.copilot_filetypes = {racket = false, tex = false, c = false, haskell = false, cpp = false}

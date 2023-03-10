@@ -33,21 +33,22 @@ def create_matrix(cols, rows, sep, end, full):
 endglobal
 
 post_jump "create_matrix_placeholders(snip)"
-snippet 'bmat(\d+),(\d+)' "LaTeX array" r
+snippet 'bmat(\d+)x(\d+)' "LaTeX array" r
 \begin{bmatrix}
 `!p snip.rv = create_matrix(match.group(1), match.group(2), "&", "\\\\\\\n", match.group(0))`
 \end{bmatrix}
 endsnippet
 
+context "math()"
 post_jump "create_matrix_placeholders(snip)"
-snippet 'pmat(\d+),(\d+)' "LaTeX array" r
+snippet 'pmat(\d+)x(\d+)' "LaTeX array" r
 \begin{pmatrix}
 `!p snip.rv = create_matrix(match.group(1), match.group(2), "&", "\\\\\\\n", match.group(0))`
 \end{pmatrix}
 endsnippet
 
 snippet template "Template" b
-\documentclass[letterpaper,14pt]{extarticle}
+\documentclass[letterpaper,12pt]{extarticle}
 \usepackage{geometry}
 \usepackage{titling}
 \usepackage{amsmath,amssymb,amsthm}

@@ -9,13 +9,14 @@ vim.g.coc_snippet_next = '<TAB>'
 vim.g.coc_snippet_prev = '<S-TAB>'
 
 local opts = {silent = true, noremap = true, expr = true, replace_keycodes = false}
+
 keyset("i", "<TAB>", function ()
     if vim.fn["coc#pum#visible"]() then
         return vim.fn["coc#pum#next"](1)
     elseif vim.fn["coc#expandableOrJumpable"]() then
         return vim.cmd("\\<C-r>=coc#snippet#next()\\<CR>")
     elseif check_back_space() then
-        return vim.cmd("\\<TAB>")
+        return vim.cmd("<Tab>")
     else
         return vim.fn["coc#refresh"]()
     end
@@ -79,7 +80,6 @@ keyset("n", "<F2>", "<Plug>(coc-rename)", {silent = true})
 
 -- Formatting selected code
 keyset("x", "<leader>f", "<Plug>(coc-format-selected)", {silent = true})
-keyset("n", "<leader>f", "<Plug>(coc-format-selected)", {silent = true})
 
 
 -- Setup formatexpr specified filetype(s)
@@ -155,6 +155,7 @@ keyset("x", "<C-s>", "<Plug>(coc-range-select)", {silent = true})
 
 -- Add `:Format` command to format current buffer
 vim.api.nvim_create_user_command("Format", "call CocAction('format')", {})
+keyset("n", "<leader>ff", ":call CocAction('format')<CR>", {silent = true})
 
 -- " Add `:Fold` command to fold current buffer
 vim.api.nvim_create_user_command("Fold", "call CocAction('fold', <f-args>)", {nargs = '?'})

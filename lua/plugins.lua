@@ -28,12 +28,23 @@ use {
 	requires = { 'kyazdani42/nvim-web-devicons', opt = true }
 }
 
+use('kdheepak/tabline.nvim')
+
 use {
     'numToStr/Comment.nvim',
     config = function()
         require('Comment').setup()
     end
 }
+
+use('dense-analysis/ale')
+
+use {
+    'goolord/alpha-nvim',
+    requires = { 'nvim-tree/nvim-web-devicons' },
+}
+
+use("lukas-reineke/indent-blankline.nvim")
 
 use('joshdick/onedark.vim')
 use('ghifarit53/tokyonight-vim')
@@ -46,16 +57,15 @@ use('gosukiwi/vim-atom-dark')
 -- Navigate with C-h C-l C-j C-k
 use('christoomey/vim-tmux-navigator')
 -- Stable version of coc
-use('neoclide/coc.nvim', { branch = "release"})
-use( 'vim-scripts/c.vim')
- -- use('wlangstroth/vim-racket')
+-- use('neoclide/coc.nvim', { branch = "release"})
+use {'neoclide/coc.nvim', branch = 'master', run = 'yarn install --frozen-lockfile'}
+-- use('vim-scripts/c.vim')
+-- use('wlangstroth/vim-racket')
 -- Close pairs () [] {} ''
 use('jiangmiao/auto-pairs')
 use('alvan/vim-closetag')
 -- "colorizer plugin for #fe4918
 use('norcalli/nvim-colorizer.lua')
--- Have the indent lines
-use( 'yggdroot/indentline')
 -- Git Integration ______________
 use( 'tpope/vim-fugitive')
 use('airblade/vim-gitgutter')
