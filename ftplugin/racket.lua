@@ -1,5 +1,6 @@
-vim.keymap.set('n', '<F10>', ':vsplit term://racket %<CR>')
-vim.keymap.set('n', '<F11>', ':vsplit term://repl %<CR>')
+local utils = require "utils"
+utils.bind_run_once('racket')
+utils.bind_run_interactive('repl')
 
 vim.opt.syntax = "scheme"
 vim.opt.commentstring = ";; %s"

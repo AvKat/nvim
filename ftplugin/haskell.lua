@@ -1,1 +1,2 @@
-vim.keymap.set('n', '<F11>', ':vsplit term://ghci "%"<CR>')
+local utils = require "utils"
+utils.bind_run_interactive('ghci')

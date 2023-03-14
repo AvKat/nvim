@@ -1,1 +1,2 @@
-vim.keymap.set('n', '<F10>', ':vsplit term://c "%"<CR>')
+local utils = require "utils"
+utils.bind_run_once('c')
