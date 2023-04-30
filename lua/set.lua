@@ -3,7 +3,7 @@ vim.cmd("colorscheme onedark")
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.clipboard="unnamed"
-vim.opt.shellcmdflag = '-ic'
+vim.opt.mouse = 'nvc'
 
 vim.opt.termguicolors = true
 

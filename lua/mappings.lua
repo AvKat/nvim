@@ -6,6 +6,13 @@ vim.keymap.set("i", "jk", "<Esc>")
 vim.keymap.set("i", "<C-z>", "<C-o>zz")
 
 vim.keymap.set("n", "<C-n>", vim.cmd.NvimTreeToggle)
+vim.keymap.set("n", "<leader>n", vim.cmd.NvimTreeToggle)
+vim.keymap.set("n", "<leader>w", ":w<CR>")
+vim.keymap.set("n", "<leader>qq", ":qa<CR>")
+vim.keymap.set("n", "<leader>bd", ":bd<CR>")
+vim.keymap.set("n", "<leader>BD", ":%bd|e#|bd#<CR>", {silent = true})
+
+vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set("n", "x", "\"_x")
 vim.keymap.set("v", "x", "\"_x")
 

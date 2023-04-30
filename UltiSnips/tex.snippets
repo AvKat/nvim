@@ -105,7 +105,7 @@ snippet colorconf "Color Configuration" b
 \newtcolorbox{corollary}{colback=peach,colbacktitle=peachborder,colframe=black,coltitle=black,title=Corollary}
 endsnippet
 
-snippet beg "begin{} / end{}" A
+snippet begend "begin{} / end{}" A
 \\begin{$1}
 	$0
 \\end{$1}
@@ -115,6 +115,18 @@ snippet ali "Align" bA
 \begin{align*}
 	${1:${VISUAL}}
 \end{align*}
+endsnippet
+
+snippet lms "limits" iA
+\lim\limits_{$0}
+endsnippet
+
+snippet lmninf "limit n to infinity" iA
+\lim\limits_{n \to \infty} $0
+endsnippet
+
+snippet lmxinf "limit x to infinity" iA
+\lim\limits_{x \to \infty} $0
 endsnippet
 
 
@@ -136,8 +148,18 @@ snippet blts "Itemize" bA
 \end{itemize}
 endsnippet
 
-snippet iii "List item" wA
-\item$0
+snippet matmnf "Matrix over F" wA
+M_{m \times n}(\mathbb{F})
+endsnippet
+
+
+snippet matsqf "Square matrix over F" wA
+M_n(\mathbb{F})
+endsnippet
+
+
+snippet odbas "Ordered Basis" wA
+[$1]_{\mathcal{B}\mathcal{A}} $0
 endsnippet
 
 snippet lsn "List Inline" wA
