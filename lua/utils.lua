@@ -15,7 +15,7 @@ function utils.bind_run_interactive(cmd)
     '<leader>re',
     (':call VimuxRunCommand("%s %s")<CR>'):format(cmd, vim.fn.expand('%')),
     -- (':vsplit term://%s %s<CR>'):format(cmd, vim.fn.shellescape(vim.fn.expand('%')))
-    , {noremap = true, silent = true, buffer = true})
+    {noremap = true, silent = true, buffer = true})
 end
 
 return utils

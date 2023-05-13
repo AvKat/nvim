@@ -24,7 +24,7 @@
           "command": "racket"
         }
       }
-    }
+    },
     "haskell": {
       "command": "haskell-language-server-wrapper",
       "args": [
@@ -43,7 +43,5 @@
         "haskell"
       ]
     }
-  },
-  "snippets.autoTrigger": false,
-  "diagnostic.displayByAle": true
+  }
 }
