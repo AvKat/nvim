@@ -26,11 +26,6 @@ vim.opt.incsearch = true
 vim.opt.scrolloff = 8
 vim.opt.splitright = true
 
--- Opts by COC
--- Having longer updatetime (default is 4000 ms = 4s) leads to noticeable
--- delays and poor user experience
-vim.opt.updatetime = 300
-
 -- Always show the signcolumn, otherwise it would shift the text each time
 -- diagnostics appeared/became resolved
 vim.opt.signcolumn = "yes"
