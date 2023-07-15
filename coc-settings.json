@@ -27,9 +27,7 @@
     },
     "haskell": {
       "command": "haskell-language-server-wrapper",
-      "args": [
-        "--lsp"
-      ],
+      "args": ["--lsp"],
       "rootPatterns": [
         ".stack.yaml",
         ".hie-bios",
@@ -37,11 +35,7 @@
         "cabal.config",
         "package.yaml"
       ],
-      "filetypes": [
-        "hs",
-        "lhs",
-        "haskell"
-      ]
+      "filetypes": ["hs", "lhs", "haskell"]
     }
   }
 }

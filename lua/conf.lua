@@ -11,3 +11,8 @@ vim.api.nvim_create_autocmd({'BufNewFile', 'BufRead'}, {
     pattern = '*.rkt',
     command = 'set filetype=racket'
 })
+
+vim.api.nvim_create_autocmd({'BufNewFile', 'BufRead'}, {
+    pattern = '*.typ',
+    command = 'set filetype=typst'
+})

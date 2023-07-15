@@ -1,80 +1,73 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
--- Only required if you have packer configured as `opt`
-vim.cmd [[packadd packer.nvim]]
-
-return require('packer').startup(function(use)
-
--- Packer can manage itself
-use 'wbthomason/packer.nvim'
-
-use {
-  'nvim-telescope/telescope.nvim', tag = '0.1.1',
-  requires = { {'nvim-lua/plenary.nvim'} }
-}
-
-use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
-
-use {
-	'nvim-tree/nvim-tree.lua',
-	requires = {
-		'nvim-tree/nvim-web-devicons', -- optional, for file icons
-	},
-	tag = 'nightly' -- optional, updated every week. (see issue #1193)
-}
-
--- use {
--- 	'nvim-lualine/lualine.nvim',
--- 	requires = { 'kyazdani42/nvim-web-devicons', opt = true }
--- }
-use 'vim-airline/vim-airline'
-
-use('tmhedberg/SimpylFold')
-use('tpope/vim-surround')
-
-use {
-    'numToStr/Comment.nvim',
-    config = function()
-        require('Comment').setup()
-    end
-}
-
-use {
+return require('lazy').setup({
+  "folke/lazy.nvim",
+  {
+    "nvim-telescope/telescope.nvim",
+    version = "0.1.1",
+    dependencies = { {'nvim-lua/plenary.nvim'} }
+  },
+  {
+    'nvim-treesitter/nvim-treesitter',
+    cmd = { 'TSUpdate' },
+  },
+  {
+    'nvim-tree/nvim-tree.lua',
+    dependencies = {
+      'nvim-tree/nvim-web-devicons', -- optional, for file icons
+    },
+    version = 'nightly' -- optional, updated every week. (see issue #1193)
+  },
+  'vim-airline/vim-airline',
+  'tmhedberg/SimpylFold',
+  'tpope/vim-surround',
+  'numToStr/Comment.nvim',
+  {
     'goolord/alpha-nvim',
-    requires = { 'nvim-tree/nvim-web-devicons' },
-}
-
-use("lukas-reineke/indent-blankline.nvim")
-
-use('joshdick/onedark.vim')
-use('ghifarit53/tokyonight-vim')
-use('tiagovla/tokyodark.nvim')
-use('lewis6991/moonlight.vim')
-use('ayu-theme/ayu-vim')
-use('gosukiwi/vim-atom-dark')
--- Plug 'HerringtonDarkholme/yats.vim'
---
--- Navigate with C-h C-l C-j C-k
-use('christoomey/vim-tmux-navigator')
-use('preservim/vimux')
--- Stable version of coc
--- use('neoclide/coc.nvim', { branch = "release"})
-use {'neoclide/coc.nvim', branch = 'master', run = 'yarn install --frozen-lockfile'}
-
--- Close pairs () [] {} ''
-use('jiangmiao/auto-pairs')
-use('alvan/vim-closetag')
--- "colorizer plugin for #fe4918
-use('norcalli/nvim-colorizer.lua')
--- Git Integration ______________
-use( 'tpope/vim-fugitive')
-use('airblade/vim-gitgutter')
--- Copilot
-use( 'github/copilot.vim')
--- Tex
-use('lervag/vimtex')
--- use('KeitaNakamura/tex-conceal.vim', { ft = "tex"})
-use('SirVer/ultisnips')
-
-end)
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+  },
+  'lukas-reineke/indent-blankline.nvim',
+  'joshdick/onedark.vim',
+  'ghifarit53/tokyonight-vim',
+  'tiagovla/tokyodark.nvim',
+  'lewis6991/moonlight.vim',
+  'ayu-theme/ayu-vim',
+  'gosukiwi/vim-atom-dark',
+  'christoomey/vim-tmux-navigator',
+  'preservim/vimux',
+  'edkolev/tmuxline.vim',
+  'gibiansky/vim-latex-objects',
+  'jiangmiao/auto-pairs',
+  'alvan/vim-closetag',
+  'norcalli/nvim-colorizer.lua',
+  'tpope/vim-fugitive',
+  'airblade/vim-gitgutter',
+  'github/copilot.vim',
+  'lervag/vimtex',
+  'SirVer/ultisnips',
+  {
+    'neoclide/coc.nvim',
+    branch = 'master',
+    build = 'yarn install --frozen-lockfile'
+  },
+  {
+    'kaarmu/typst.vim',
+    ft = {'typst'}
+  },
+  -- {
+  --   'nvarner/typst-lsp',
+  --   ft = {'typst'}
+  -- },
+})
 

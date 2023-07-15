@@ -159,6 +159,7 @@ keyset("n", "<leader>ff", ":call CocAction('format')<CR>", {silent = true})
 
 -- " Add `:Fold` command to fold current buffer
 vim.api.nvim_create_user_command("Fold", "call CocAction('fold', <f-args>)", {nargs = '?'})
+keyset("n", "<leader>fz", ":call CocAction('fold')<CR>", {silent = true})
 
 -- Add `:OR` command for organize imports of the current buffer
 vim.api.nvim_create_user_command("OR", "call CocActionAsync('runCommand', 'editor.action.organizeImport')", {})

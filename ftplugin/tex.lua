@@ -13,21 +13,13 @@ vim.g.tex_conceal = ''
 --     greek = 1
 -- }
 
-vim.cmd('ALEDisableBuffer')
+vim.cmd('let b:AutoPairs = {"(":")", "[":"]", "{":"}", \'"\':\'"\', "`":"`", "\'":"\'", "$":"$", "|":"|"}')
+vim.opt.spell = true
+vim.opt.spelllang = 'en_us'
+vim.cmd('VimtexCompile')
+vim.cmd("sleep 1000m")
 
 local tex_au = vim.api.nvim_create_augroup('tex_au', {clear = true})
-vim.api.nvim_create_autocmd({ 'VimEnter' }, {
-    group = "tex_au",
-    pattern = '*.tex',
-    callback = function()
-        vim.cmd('let b:AutoPairs = {"(":")", "[":"]", "{":"}", \'"\':\'"\', "`":"`", "\'":"\'", "$":"$", "|":"|"}')
-        vim.opt.spell = true
-        vim.opt.spelllang = 'en_us'
-        vim.cmd('VimtexCompile')
-        vim.cmd("sleep 1000m")
-    end
-})
-
 vim.api.nvim_create_autocmd({ 'BufUnload' }, {
     group = "tex_au",
     pattern = '*.tex',
