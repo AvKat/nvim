@@ -16,7 +16,7 @@ return require('lazy').setup({
   {
     "nvim-telescope/telescope.nvim",
     version = "0.1.2",
-    dependencies = { {'nvim-lua/plenary.nvim'} }
+    dependencies = { { 'nvim-lua/plenary.nvim' } }
   },
   {
     'nvim-treesitter/nvim-treesitter',
@@ -27,7 +27,7 @@ return require('lazy').setup({
     dependencies = {
       'nvim-tree/nvim-web-devicons', -- optional, for file icons
     },
-    version = 'nightly' -- optional, updated every week. (see issue #1193)
+    version = 'nightly'              -- optional, updated every week. (see issue #1193)
   },
   'vim-airline/vim-airline',
   'tmhedberg/SimpylFold',
@@ -45,6 +45,7 @@ return require('lazy').setup({
   'ayu-theme/ayu-vim',
   'gosukiwi/vim-atom-dark',
   'christoomey/vim-tmux-navigator',
+
   'preservim/vimux',
   'edkolev/tmuxline.vim',
   'gibiansky/vim-latex-objects',
@@ -63,11 +64,6 @@ return require('lazy').setup({
   },
   {
     'kaarmu/typst.vim',
-    ft = {'typst'}
+    ft = { 'typst' }
   },
-  -- {
-  --   'nvarner/typst-lsp',
-  --   ft = {'typst'}
-  -- },
 })
-

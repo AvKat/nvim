@@ -10,33 +10,13 @@ vim.g.coc_snippet_prev = '<S-TAB>'
 
 local opts = {silent = true, noremap = true, expr = true, replace_keycodes = false}
 
-keyset("i", "<TAB>", function ()
-    if vim.fn["coc#pum#visible"]() then
-        return vim.fn["coc#pum#next"](1)
-    elseif vim.fn["coc#expandableOrJumpable"]() then
-        return vim.cmd("\\<C-r>=coc#snippet#next()\\<CR>")
-    elseif check_back_space() then
-        return vim.cmd("<Tab>")
-    else
-        return vim.fn["coc#refresh"]()
-    end
-end, opts)
 
-keyset("i", "<S-Tab>", function ()
-    if vim.fn["coc#pum#visible"]() then
-        return vim.fn["coc#pum#prev"](1)
-    elseif vim.fn["coc#expandableOrJumpable"]() then
-        return vim.cmd("\\<C-r>=coc#snippet#prev()\\<CR>")
-    elseif check_back_space() then
-        return vim.cmd("\\<TAB>")
-    else
-        return vim.fn["coc#refresh"]()
-    end
-end, opts)
+keyset("i", "<TAB>", 'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<TAB>" : coc#refresh()', opts)
+keyset("i", "<S-TAB>", [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], opts)
 
--- Make <CR> to accept selected completion item or notify coc.nvim to format
 -- <C-g>u breaks current undo, please make your own choice
 keyset("i", "<cr>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts)
+keyset("i", "<c-k>", "<Plug>(coc-snippets-expand-jump)")
 
 -- Use <c-space> to trigger completion
 keyset("i", "<c-space>", "coc#refresh()", {silent = true, expr = true})
@@ -109,7 +89,7 @@ keyset("n", "<leader>ac", "<Plug>(coc-codeaction-cursor)", opts)
 -- Remap keys for apply code actions affect whole buffer.
 keyset("n", "<leader>as", "<Plug>(coc-codeaction-source)", opts)
 -- Remap keys for applying codeActions to the current buffer
-keyset("n", "<leader>ac", "<Plug>(coc-codeaction)", opts)
+keyset("n", "<leader>ab", "<Plug>(coc-codeaction)", opts)
 -- Apply the most preferred quickfix action on the current line.
 keyset("n", "<leader>qf", "<Plug>(coc-fix-current)", opts)
 
@@ -138,13 +118,13 @@ keyset("o", "ac", "<Plug>(coc-classobj-a)", opts)
 ---@diagnostic disable-next-line: redefined-local
 local opts = {silent = true, nowait = true, expr = true}
 keyset("n", "<C-f>", 'coc#float#has_scroll() ? coc#float#scroll(1) : "<C-f>"', opts)
-keyset("n", "<C-b>", 'coc#float#has_scroll() ? coc#float#scroll(0) : "<C-b>"', opts)
+keyset("n", "<C-r>", 'coc#float#has_scroll() ? coc#float#scroll(0) : "<C-b>"', opts)
 keyset("i", "<C-f>",
        'coc#float#has_scroll() ? "<c-r>=coc#float#scroll(1)<cr>" : "<Right>"', opts)
-keyset("i", "<C-b>",
+keyset("i", "<C-r>",
        'coc#float#has_scroll() ? "<c-r>=coc#float#scroll(0)<cr>" : "<Left>"', opts)
 keyset("v", "<C-f>", 'coc#float#has_scroll() ? coc#float#scroll(1) : "<C-f>"', opts)
-keyset("v", "<C-b>", 'coc#float#has_scroll() ? coc#float#scroll(0) : "<C-b>"', opts)
+keyset("v", "<C-r>", 'coc#float#has_scroll() ? coc#float#scroll(0) : "<C-b>"', opts)
 
 
 -- Use CTRL-S for selections ranges

@@ -9,7 +9,8 @@
     "jsonc",
     "typescriptreact",
     "typescript",
-    "latex"
+    "latex",
+    "rust"
   ],
   "tsserver.trace.server": "verbose",
   "tsserver.log": "verbose",
@@ -37,5 +38,6 @@
       ],
       "filetypes": ["hs", "lhs", "haskell"]
     }
-  }
+  },
+  "snippets.ultisnips.pythonPrompt": false
 }

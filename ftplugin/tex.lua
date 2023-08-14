@@ -19,14 +19,13 @@ vim.opt.spelllang = 'en_us'
 vim.cmd('VimtexCompile')
 vim.cmd("sleep 1000m")
 
-local tex_au = vim.api.nvim_create_augroup('tex_au', {clear = true})
+local tex_au = vim.api.nvim_create_augroup('tex_au', { clear = true })
 vim.api.nvim_create_autocmd({ 'BufUnload' }, {
-    group = "tex_au",
-    pattern = '*.tex',
-    callback = function()
-        vim.cmd('call vimtex#compiler#clean(0)')
-    end
+  group = "tex_au",
+  pattern = '*.tex',
+  callback = function()
+    vim.cmd('call vimtex#compiler#clean(0)')
+  end
 })
 
 vim.keymap.set('i', '<C-l>', '<c-g>u<Esc>[s1z=`]a<c-g>u')
-vim.keymap.set('i', '<C-o>', '<Plug>(coc-snippets-expand)')

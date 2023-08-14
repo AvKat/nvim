@@ -1,3 +1,24 @@
+snippet template "Template" b
+#let project(title: "", body) = {
+  set document(author: "Avish Kathpal", title: title)
+  set page(numbering: "1", height: auto)
+  set text(font: "JetBrainsMonoNL Nerd Font Mono", lang: "en", size: 1.1em)
+  align(center)[
+    #block(text(weight: 900, 2.75em, title))
+  ]
+  set par(justify: true)
+  align(horizon)[
+    #outline()
+  ]
+  pagebreak()
+  body
+}
+
+#show: project.with(title: "$1")
+
+$2
+endsnippet
+
 snippet mk "Math" wA
 $${1}$`!p
 if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
