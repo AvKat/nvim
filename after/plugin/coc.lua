@@ -56,7 +56,7 @@ vim.api.nvim_create_autocmd("CursorHold", {
 })
 
 -- Symbol renaming
-keyset("n", "<F2>", "<Plug>(coc-rename)", {silent = true})
+keyset("n", "<leader>rn", "<Plug>(coc-rename)", {silent = true})
 
 -- Formatting selected code
 keyset("x", "<leader>f", "<Plug>(coc-format-selected)", {silent = true})
@@ -118,13 +118,13 @@ keyset("o", "ac", "<Plug>(coc-classobj-a)", opts)
 ---@diagnostic disable-next-line: redefined-local
 local opts = {silent = true, nowait = true, expr = true}
 keyset("n", "<C-f>", 'coc#float#has_scroll() ? coc#float#scroll(1) : "<C-f>"', opts)
-keyset("n", "<C-r>", 'coc#float#has_scroll() ? coc#float#scroll(0) : "<C-b>"', opts)
+keyset("n", "<C-e>", 'coc#float#has_scroll() ? coc#float#scroll(0) : "<C-b>"', opts)
 keyset("i", "<C-f>",
        'coc#float#has_scroll() ? "<c-r>=coc#float#scroll(1)<cr>" : "<Right>"', opts)
-keyset("i", "<C-r>",
+keyset("i", "<C-e>",
        'coc#float#has_scroll() ? "<c-r>=coc#float#scroll(0)<cr>" : "<Left>"', opts)
 keyset("v", "<C-f>", 'coc#float#has_scroll() ? coc#float#scroll(1) : "<C-f>"', opts)
-keyset("v", "<C-r>", 'coc#float#has_scroll() ? coc#float#scroll(0) : "<C-b>"', opts)
+keyset("v", "<C-e>", 'coc#float#has_scroll() ? coc#float#scroll(0) : "<C-b>"', opts)
 
 
 -- Use CTRL-S for selections ranges

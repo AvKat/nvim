@@ -39,5 +39,11 @@
       "filetypes": ["hs", "lhs", "haskell"]
     }
   },
-  "snippets.ultisnips.pythonPrompt": false
+  "snippets.ultisnips.pythonPrompt": false,
+  "tailwindCSS.classAttributes": [
+    "class",
+    "className",
+    "ngClass",
+    ".*_CLASSES"
+  ]
 }

@@ -36,12 +36,18 @@ vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 
 vim.api.nvim_create_user_command("ChangeRunCommand", function ()
   local cmd = vim.fn.input("Enter new command: ")
+  if cmd == "" then
+    return
+  end
   local hasFileName = vim.fn.input("Has file name? (0/1): ")
   utils.change_run_cmd(cmd, hasFileName)
 end, {})
 
 vim.api.nvim_create_user_command("ChangeInteractiveCommand", function ()
   local cmd = vim.fn.input("Enter new command: ")
+  if cmd == "" then
+    return
+  end
   local hasFileName = vim.fn.input("Has file name? (0/1): ")
   utils.change_interactive_cmd(cmd, hasFileName)
 end, {})
