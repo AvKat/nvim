@@ -57,13 +57,25 @@ return require('lazy').setup({
   'github/copilot.vim',
   'lervag/vimtex',
   'SirVer/ultisnips',
-  {
-    'neoclide/coc.nvim',
-    branch = 'master',
-    build = 'yarn install --frozen-lockfile'
-  },
+  -- {
+  --   'neoclide/coc.nvim',
+  --   branch = 'master',
+  --   build = 'yarn install --frozen-lockfile'
+  -- },
   {
     'kaarmu/typst.vim',
     ft = { 'typst' }
   },
+  { 'neovim/nvim-lspconfig' },
+  { 'williamboman/mason.nvim' },
+  { 'williamboman/mason-lspconfig.nvim' },
+  { 'hrsh7th/cmp-buffer' },
+  { 'hrsh7th/cmp-path' },
+  { 'hrsh7th/cmp-nvim-lsp' },
+  { "hrsh7th/nvim-cmp" },
+  { 'L3MON4D3/LuaSnip' },
+  {
+    "scalameta/nvim-metals",
+    dependencies = { "nvim-lua/plenary.nvim", "mfussenegger/nvim-dap" },
+  }
 })

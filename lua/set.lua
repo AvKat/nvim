@@ -51,3 +51,7 @@ vim.api.nvim_create_user_command("ChangeInteractiveCommand", function ()
   local hasFileName = vim.fn.input("Has file name? (0/1): ")
   utils.change_interactive_cmd(cmd, hasFileName)
 end, {})
+
+vim.api.nvim_create_user_command("Reload", function ()
+  vim.cmd("source ~/.config/nvim/init.lua")
+end, {})
