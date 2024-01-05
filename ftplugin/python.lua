@@ -1,2 +1,2 @@
 local utils = require "utils"
-utils.bind_run_once('python')
+utils.bind_run_once('py')

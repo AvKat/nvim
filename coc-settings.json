@@ -10,7 +10,8 @@
     "typescriptreact",
     "typescript",
     "latex",
-    "rust"
+    "rust",
+    "scala"
   ],
   "tsserver.trace.server": "verbose",
   "tsserver.log": "verbose",
@@ -45,5 +46,6 @@
     "className",
     "ngClass",
     ".*_CLASSES"
-  ]
+  ],
+  "metals.statusBarEnabled": true
 }

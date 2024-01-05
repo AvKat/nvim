@@ -41,10 +41,9 @@ return require('lazy').setup({
   'joshdick/onedark.vim',
   'ghifarit53/tokyonight-vim',
   'tiagovla/tokyodark.nvim',
-  'lewis6991/moonlight.vim',
-  'ayu-theme/ayu-vim',
   'gosukiwi/vim-atom-dark',
   'christoomey/vim-tmux-navigator',
+  'sainnhe/sonokai',
 
   'preservim/vimux',
   'edkolev/tmuxline.vim',
@@ -74,8 +73,16 @@ return require('lazy').setup({
   { 'hrsh7th/cmp-nvim-lsp' },
   { "hrsh7th/nvim-cmp" },
   { 'L3MON4D3/LuaSnip' },
+  -- { 'ranjithshegde/ccls.nvim' },
   {
     "scalameta/nvim-metals",
     dependencies = { "nvim-lua/plenary.nvim", "mfussenegger/nvim-dap" },
+  },
+  {
+    'chipsenkbeil/distant.nvim',
+    branch = 'v0.3',
+    config = function()
+      require('distant'):setup()
+    end
   }
 })

@@ -1,8 +1,8 @@
 snippet template "Template" b
 #let project(title: "", body) = {
   set document(author: "Avish Kathpal", title: title)
-  set page(numbering: "1", height: auto)
-  set text(font: "JetBrainsMonoNL Nerd Font Mono", lang: "en", size: 1.1em)
+  set page(numbering: "1")
+  set text(font: "Avenir", lang: "en", size: 1.1em)
   align(center)[
     #block(text(weight: 900, 2.75em, title))
   ]
@@ -19,11 +19,37 @@ snippet template "Template" b
 $2
 endsnippet
 
+snippet typ_cmd "Typst commands" b
+#let seq = $subset.eq$
+#let iff = $<=>$
+#let bsq = $square.filled.big$
+#let ttim = $tack.double$
+endsnippet
+
 snippet mk "Math" wA
-$${1}$`!p
-if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
-    snip.rv = ' '
-else:
-    snip.rv = ''
-`$2
+\$${1}\$
+endsnippet
+
+snippet ;rack "Racket code" wA
+\`\`\`racket
+$1
+\`\`\`
+endsnippet
+
+snippet ;py "Python code" wA
+\`\`\`python
+$1
+\`\`\`
+endsnippet
+
+snippet ;cpp "C++ code" wA
+\`\`\`cpp
+$1
+\`\`\`
+endsnippet
+
+snippet ;sca "Scala code" wA
+\`\`\`scala
+$1
+\`\`\`
 endsnippet

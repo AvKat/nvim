@@ -1,6 +1,6 @@
 vim.opt.spell = true
 vim.opt.spelllang = 'en_us'
-vim.keymap.set('i', '<C-l>', '<c-g>u<Esc>[s1z=`]a<c-g>u')
+vim.keymap.set('i', '<C-s>', '<c-g>u<Esc>[s1z=`]a<c-g>u')
 vim.cmd('let b:AutoPairs = {"(":")", "[":"]", "{":"}", \'"\':\'"\', "\'":"\'", "$":"$", "|":"|"}')
 
 -- $$ text objects from vim-latec-objects
@@ -28,7 +28,6 @@ function _G.OpenPdfSioyek()
     ('sioyek %s'):format(pdfName)
   )
 end
-
 
 TypstWatch()
 OpenPdfSioyek()
