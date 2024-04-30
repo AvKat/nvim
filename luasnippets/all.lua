@@ -7,12 +7,14 @@ local i = ls.insert_node
 local f = ls.function_node
 local fmt = require("luasnip.extras.fmt").fmt
 
-ls.setup({
-  enable_autosnippets = true,
-})
+local date = function() return { os.date('%Y-%m-%d') } end
 
-require("luasnip.loaders.from_lua").load({ paths = "./luasnippets" })
-
-vim.keymap.set({ "i" }, "<C-i>", function()
-  ls.expand()
-end, {})
+return {
+  s({
+    trig = "date",
+    name = "Date",
+    dscr = "Date in the form of YYYY-MM-DD",
+  }, {
+    f(date, {}),
+  }),
+}

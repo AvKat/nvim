@@ -22,6 +22,7 @@ return require('lazy').setup({
     'nvim-treesitter/nvim-treesitter',
     cmd = { 'TSUpdate' },
   },
+  'nvim-treesitter/nvim-treesitter-textobjects',
   {
     'nvim-tree/nvim-tree.lua',
     dependencies = {
@@ -55,7 +56,7 @@ return require('lazy').setup({
   'airblade/vim-gitgutter',
   'github/copilot.vim',
   'lervag/vimtex',
-  'SirVer/ultisnips',
+  -- 'SirVer/ultisnips',
   -- {
   --   'neoclide/coc.nvim',
   --   branch = 'master',
@@ -72,7 +73,6 @@ return require('lazy').setup({
   { 'hrsh7th/cmp-path' },
   { 'hrsh7th/cmp-nvim-lsp' },
   { "hrsh7th/nvim-cmp" },
-  { 'L3MON4D3/LuaSnip' },
   -- { 'ranjithshegde/ccls.nvim' },
   {
     "scalameta/nvim-metals",
@@ -84,5 +84,11 @@ return require('lazy').setup({
     config = function()
       require('distant'):setup()
     end
-  }
+  },
+  {
+    "L3MON4D3/LuaSnip",
+    version = "v2.*",
+    build = "make install_jsregexp"
+  },
+  { 'saadparwaiz1/cmp_luasnip' }
 })

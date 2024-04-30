@@ -22,20 +22,20 @@ local mappings = {
   end,
   ["<C-Space>"] = cmp.mapping.complete(),
   ["<CR>"] = cmp.mapping.confirm({ select = true }),
-  ['<Tab>'] = function(fallback)
+  ["<Tab>"] = cmp.mapping(function(fallback)
     if cmp.visible() then
       cmp.select_next_item()
     else
       fallback()
     end
-  end,
-  ['<S-Tab>'] = function(fallback)
+  end, { "i", "s" }),
+  ["<S-Tab"] = cmp.mapping(function(fallback)
     if cmp.visible() then
       cmp.select_prev_item()
     else
       fallback()
     end
-  end,
+  end, { "i", "s" }),
 }
 
 cmp.setup({
@@ -51,6 +51,7 @@ cmp.setup({
   -- sources for autocompletion
   sources = cmp.config.sources({
     { name = "nvim_lsp" }, -- lsp
+    { name = "luasnip" },  -- snippets
     { name = "buffer" },   -- text within current buffer
     { name = "path" },     -- file system paths
   }),
