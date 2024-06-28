@@ -16,8 +16,20 @@ vim.g.tex_conceal = ''
 vim.cmd('let b:AutoPairs = {"(":")", "[":"]", "{":"}", \'"\':\'"\', "`":"`", "\'":"\'", "$":"$", "|":"|"}')
 vim.opt.spell = true
 vim.opt.spelllang = 'en_us'
-vim.cmd('VimtexCompile')
-vim.cmd("sleep 1000m")
+
+
+function _G.OpenPdfSioyek()
+  local pdfName = vim.fn.expand('%'):gsub('%.tex$', '.pdf')
+  if vim.fn.filereadable(pdfName) == 0 then
+    print('No pdf file found')
+    return
+  end
+  vim.fn.jobstart(
+    ('sioyek %s'):format(pdfName)
+  )
+end
+
+vim.api.nvim_create_user_command('OpenPdfSioyek', OpenPdfSioyek, {})
 
 local tex_au = vim.api.nvim_create_augroup('tex_au', { clear = true })
 vim.api.nvim_create_autocmd({ 'BufUnload' }, {

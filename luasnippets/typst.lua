@@ -70,10 +70,18 @@ return {
   s("typcmd", fmt([[
 #let seq = $subset.eq$
 #let supeq = $supset.eq$
+#let sm = $backslash$
 #let iff = $<=>$
 #let bsq = $square.filled.big$
 #let nin = $in.not$
 #let pm = $plus.minus$
+#let u = underline
+#let RR = $bb(R)$
+#let Rn = $bb(R)^n$
+#let cyc(n) = $angle.l #n angle.r$
+#let th(n) = $#n^"th"$
+#let vc(x) = $limits(#x)^->$
+#let cong = $tilde.equiv$
   ]], {})),
   -- Math mode
   s({

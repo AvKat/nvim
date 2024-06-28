@@ -45,7 +45,6 @@ return require('lazy').setup({
   'gosukiwi/vim-atom-dark',
   'christoomey/vim-tmux-navigator',
   'sainnhe/sonokai',
-
   'preservim/vimux',
   'edkolev/tmuxline.vim',
   'gibiansky/vim-latex-objects',
@@ -90,5 +89,6 @@ return require('lazy').setup({
     version = "v2.*",
     build = "make install_jsregexp"
   },
-  { 'saadparwaiz1/cmp_luasnip' }
+  { 'saadparwaiz1/cmp_luasnip' },
+  { 'whonore/Coqtail' }
 })

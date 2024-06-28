@@ -3,6 +3,9 @@ vim.opt.spelllang = 'en_us'
 vim.keymap.set('i', '<C-s>', '<c-g>u<Esc>[s1z=`]a<c-g>u')
 vim.cmd('let b:AutoPairs = {"(":")", "[":"]", "{":"}", \'"\':\'"\', "\'":"\'", "$":"$", "|":"|"}')
 
+vim.keymap.set('i', '<C-u>', '#u[')
+vim.keymap.set('x', '<C-u>', 'lc#u[<ESC>pi]<ESC>')
+
 -- $$ text objects from vim-latec-objects
 vim.keymap.set('v', 'im', '<ESC>:call SelectInMath(0)<CR>')
 vim.keymap.set('v', 'am', '<ESC>:call SelectInMath(1)<CR>')
