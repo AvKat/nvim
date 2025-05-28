@@ -30,7 +30,7 @@ vim.opt.splitright = true
 -- diagnostics appeared/became resolved
 vim.opt.signcolumn = "yes"
 
-vim.g.sonokai_style = 'atlantis'
+vim.g.sonokai_style = 'andromeda'
 vim.g.sonokai_better_performance = 1
 vim.g.sonokai_enable_italic = 1
 vim.g.sonokai_transparent_background = 2
@@ -42,24 +42,27 @@ vim.cmd.colorscheme("sonokai")
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 
+
+vim.api.nvim_set_hl(0, "WinSeparator", { bg = "gray" })
+
 vim.api.nvim_create_user_command("ChangeRunCommand", function()
-	local cmd = vim.fn.input("Enter new command: ")
-	if cmd == "" then
-		return
-	end
-	local hasFileName = vim.fn.input("Has file name? (0/1): ")
-	utils.change_run_cmd(cmd, hasFileName)
+  local cmd = vim.fn.input("Enter new command: ")
+  if cmd == "" then
+    return
+  end
+  local hasFileName = vim.fn.input("Has file name? (0/1): ")
+  utils.change_run_cmd(cmd, hasFileName)
 end, {})
 
 vim.api.nvim_create_user_command("ChangeInteractiveCommand", function()
-	local cmd = vim.fn.input("Enter new command: ")
-	if cmd == "" then
-		return
-	end
-	local hasFileName = vim.fn.input("Has file name? (0/1): ")
-	utils.change_interactive_cmd(cmd, hasFileName)
+  local cmd = vim.fn.input("Enter new command: ")
+  if cmd == "" then
+    return
+  end
+  local hasFileName = vim.fn.input("Has file name? (0/1): ")
+  utils.change_interactive_cmd(cmd, hasFileName)
 end, {})
 
 vim.api.nvim_create_user_command("Reload", function()
-	vim.cmd("source ~/.config/nvim/init.lua")
+  vim.cmd("source ~/.config/nvim/init.lua")
 end, {})

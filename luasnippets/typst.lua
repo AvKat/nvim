@@ -26,17 +26,7 @@ end
 
 return {
   s("template", fmt([[
-#let project(title: "", body) = {
-  set document(author: "Avish Kathpal", title: title)
-  set page(numbering: "1")
-  align(center)[
-    #block(text(font: "Avenir", weight: 900, 2.75em, title))
-  ]
-  set par(justify: true)
-  set text(font: "sans serif", lang: "en", size: 1em)
-  body
-}
-
+#import "/Local Docs/scripts/template.typ" : *
 #show: project.with(title: "<>")
   ]], {
     i(1, "title")
@@ -45,44 +35,32 @@ return {
   })),
 
   s("template_with_outline", fmt([[
-#let project(title: "", body) = {
-  set document(author: "Avish Kathpal", title: title)
-  set page(numbering: "1")
-  set text(font: "Avenir", lang: "en", size: 1.1em)
-  align(center)[
-    #block(text(weight: 900, 2.75em, title))
-  ]
-  set par(justify: true)
-  align(horizon)[
-    #outline()
-  ]
-  pagebreak()
-  body
-}
-
-#show: project.with(title: "<>")
+#import "/Local Docs/scripts/template.typ" : *
+#show: projectOutline.with(title: "<>")
   ]], {
     i(1, "title")
   }, {
     delimiters = "<>"
   })),
 
-  s("typcmd", fmt([[
-#let seq = $subset.eq$
-#let supeq = $supset.eq$
-#let sm = $backslash$
-#let iff = $<=>$
-#let bsq = $square.filled.big$
-#let nin = $in.not$
-#let pm = $plus.minus$
-#let u = underline
-#let RR = $bb(R)$
-#let Rn = $bb(R)^n$
-#let cyc(n) = $angle.l #n angle.r$
-#let th(n) = $#n^"th"$
-#let vc(x) = $limits(#x)^->$
-#let cong = $tilde.equiv$
-  ]], {})),
+  --   s("typcmd", fmt([[
+  -- #let seq = $subset.eq$
+  -- #let supeq = $supset.eq$
+  -- #let sm = $backslash$
+  -- #let iff = $<=>$
+  -- #let bsq = $square.filled.big$
+  -- #let nin = $in.not$
+  -- #let pm = $plus.minus$
+  -- #let u = underline
+  -- #let RR = $bb(R)$
+  -- #let Rn = $bb(R)^n$
+  -- #let cyc(n) = $angle.l #n angle.r$
+  -- #let th(n) = $#n^"th"$
+  -- #let vc(x) = $limits(#x)^->$
+  -- #let cong = $tilde.equiv$
+  -- #let satisfies = $tack.double$
+  -- #let larrow = $arrow.l.double$
+  --   ]], {})),
   -- Math mode
   s({
     trig = "mk",

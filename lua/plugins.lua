@@ -30,6 +30,14 @@ return require('lazy').setup({
     },
     version = 'nightly'              -- optional, updated every week. (see issue #1193)
   },
+  {
+    'Julian/lean.nvim',
+    event = { 'BufReadPre *.lean', 'BufNewFile *.lean' },
+    dependencies = {
+      'neovim/nvim-lspconfig',
+      'nvim-lua/plenary.nvim',
+    },
+  },
   'vim-airline/vim-airline',
   'tmhedberg/SimpylFold',
   'tpope/vim-surround',
@@ -45,6 +53,7 @@ return require('lazy').setup({
   'gosukiwi/vim-atom-dark',
   'christoomey/vim-tmux-navigator',
   'sainnhe/sonokai',
+  'jdsimcoe/abstract.vim',
   'preservim/vimux',
   'edkolev/tmuxline.vim',
   'gibiansky/vim-latex-objects',

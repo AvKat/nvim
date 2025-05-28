@@ -15,10 +15,11 @@ vim.keymap.set('o', 'am', ':normal vam<CR>')
 -- Open pdf and run typst watch
 function _G.TypstWatch()
   vim.g.VimuxOrientation = 'v'
+  vim.g.VimuxHeight = '30%'
   vim.fn["VimuxOpenRunner"]()
   vim.g.VimuxOrientation = 'h'
 
-  vim.fn["VimuxRunCommand"](('typst watch %s'):format(vim.fn.expand('%')))
+  vim.fn["VimuxRunCommand"](('typst watch --root ~ %s'):format(vim.fn.expand('%')))
 end
 
 function _G.OpenPdfSioyek()
@@ -32,12 +33,25 @@ function _G.OpenPdfSioyek()
   )
 end
 
-TypstWatch()
 OpenPdfSioyek()
+
+function _G.OpenPdfZathura()
+  local pdfName = vim.fn.expand('%'):gsub('%.typ$', '.pdf')
+  if vim.fn.filereadable(pdfName) == 0 then
+    print('No pdf file found')
+    return
+  end
+  vim.fn.jobstart(
+    ('zathura %s'):format(pdfName)
+  )
+end
 
 vim.api.nvim_create_user_command('MyTypstWatch', TypstWatch, {})
 vim.api.nvim_create_user_command('OpenPdfSioyek', OpenPdfSioyek, {})
+vim.api.nvim_create_user_command('Zathura', OpenPdfZathura, {})
 
+vim.keymap.set('n', '<leader>tw', ':MyTypstWatch<CR>')
+vim.keymap.set('n', '<leader>zo', ':Zathura<CR>')
 
 vim.api.nvim_create_autocmd({ 'BufUnload' }, {
   pattern = '*.typ',
